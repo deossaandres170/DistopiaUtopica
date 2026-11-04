@@ -130,7 +130,22 @@ class Program
     static void VerDetallePrestamoPorID ()
     {
         Console.WriteLine("Has seleccionado:  Ver detalle de prestamo por (ID) ");
-    } 
+    }
+
+    static void BuscarLibro()
+    {
+        Console.WriteLine("Has seleccionado: Buscar libro");
+    }
+
+    static void BuscarUsuario ()
+    {
+        Console.WriteLine("Has seleccionado: Buscar usuario");
+    }
+
+    static void Reportes ()
+    {
+        Console.WriteLine("Has seleccionado: Reportes");
+    }
     static void MenuPrincipal()
     {
         int Opcion;
@@ -510,6 +525,49 @@ class Program
                 case 4:
 
                     Console.WriteLine("Has seleccionado: Búsquedas y reportes");
+
+                    do
+                                {
+                                    Console.WriteLine("\n--- BÚSQUEDAS Y REPORTES ---");
+                                    Console.WriteLine("0. Volver Al Menú Anterior");
+                                    Console.WriteLine("1. Buscar Libro");
+                                    Console.WriteLine("2. Buscar usuario");
+                                    Console.WriteLine("3. Reportes");
+                                    Console.Write("Selecciona una opción: ");
+
+                                    Opcion = Convert.ToInt32(Console.ReadLine());
+
+                                    switch (Opcion)
+                                    {
+                                        case 0:
+
+                                            MensajeVolverMenuAnterior ();
+                                            break;
+
+                                        case 1:
+
+                                            BuscarLibro ();
+                                            break;
+
+                                        case 2:
+
+                                            BuscarUsuario ();
+                                            break;
+
+                                        case 3:
+
+                                            Reportes ();
+                                            break;
+
+                                        default:
+
+                                            Default();
+                                            break;
+
+                                    }
+
+                                } while (Opcion != 0);
+
                     break;
 
                 case 5:
