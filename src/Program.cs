@@ -79,23 +79,58 @@ class Program
 
     static void EditarNombre ()
     {
-         Console.WriteLine("Has seleccionado: Editar nombre ");
+        Console.WriteLine("Has seleccionado: Editar nombre ");
     }
 
     static void EditarContacto ()
     {
-         Console.WriteLine("Has seleccionado: Editar contacto ");
+        Console.WriteLine("Has seleccionado: Editar contacto ");
     }
 
     static void ActivarDesactivar ()
     {
-         Console.WriteLine("Has seleccionado: Activar/Desacticar ");
+        Console.WriteLine("Has seleccionado: Activar/Desacticar ");
     }
 
     static void EliminarUsuario ()
     {
-         Console.WriteLine("Has seleccionado:  Eliminar usuario ");
+        Console.WriteLine("Has seleccionado:  Eliminar usuario ");
     }
+
+    static void CrearPrestamo ()
+    {
+        Console.WriteLine("Has seleccionado:  Crear prestamo ");
+    }
+
+    static void PrestamosListarTodos ()
+    {
+        Console.WriteLine("Has seleccionado:  Listar todos los  prestamos ");
+    }
+
+    static void PrestamosListarActivos ()
+    {
+        Console.WriteLine("Has seleccionado:  Listar  los  prestamos activos  ");
+    }
+
+    static void PreestamosListarCerrados ()
+    {
+        Console.WriteLine("Has seleccionado:  Listar  los  prestamos cerrados o (devueltos)");
+    }
+
+    static void RegistrarDevolucion ()
+    {
+        Console.WriteLine("Has seleccionado:  Registrar devolución ");
+    }
+
+    static void ElliminarPrestamo ()
+    {
+        Console.WriteLine("Has seleccionado: Eliminar prestamos ");
+    }
+
+    static void VerDetallePrestamoPorID ()
+    {
+        Console.WriteLine("Has seleccionado:  Ver detalle de prestamo por (ID) ");
+    } 
     static void MenuPrincipal()
     {
         int Opcion;
@@ -367,7 +402,109 @@ class Program
 
                 case 3:
 
-                    Console.WriteLine("Has seleccionado: Ver préstamos");
+                    Console.WriteLine("Has seleccionado: Prestamos");
+
+                    do
+                    {
+                        Console.WriteLine("\n--- MENÚ PRESTAMOS ---");
+                        Console.WriteLine("0. Volver Al Menú Anterior");
+                        Console.WriteLine("1. Crear Préstamo");
+                        Console.WriteLine("2. Listar Préstamo");
+                        Console.WriteLine("3. Ver detalle del Préstamo (por ID)");
+                        Console.WriteLine("4. Registrar Devolución");
+                        Console.WriteLine("5. Eliminar Préstamo");
+                        Console.Write("Selecciona una opción: ");
+
+                        Opcion = Convert.ToInt32(Console.ReadLine());
+
+                        switch (Opcion)
+                        {
+                            case 0:
+
+                                MensajeVolverMenuAnterior ();
+                                break;
+
+                            case 1:
+
+                                CrearPrestamo ();
+                                break;
+
+                            case 2:
+
+                                Console.WriteLine("Has seleccionado: Listar Préstamo");
+
+                                do
+                                {
+                                    Console.WriteLine("\n--- LISTAR PRESTAMO ---");
+                                    Console.WriteLine("1. Volver Al Menú Anterior");
+                                    Console.WriteLine("2. Listar Todos");
+                                    Console.WriteLine("3. Listar Activos");
+                                    Console.WriteLine("4. Listar Cerrados (devueltos) ");
+                                    Console.Write("Selecciona una opción: ");
+
+                                    Opcion = Convert.ToInt32(Console.ReadLine());
+
+                                    switch (Opcion)
+                                    {
+                                        case 1:
+
+                                            MensajeVolverMenuAnterior ();
+                                            break;
+
+                                        case 2:
+
+                                            PrestamosListarTodos ();
+                                            break;
+
+                                        case 3:
+
+                                            PrestamosListarActivos ();
+                                            break;
+
+                                        case 4:
+
+                                            PreestamosListarCerrados ();
+                                            break;
+
+                                        default:
+
+                                            Default();
+                                            break;
+
+                                    }
+
+                                } while (Opcion != 1);
+
+                                
+                                break;
+
+                            case 3:
+
+                                VerDetallePrestamoPorID();
+                                break;
+
+                            case 4:
+
+                                RegistrarDevolucion ();
+
+                                break;
+
+                            case 5:
+
+                                ElliminarPrestamo ();
+
+                                Console.Write("¿Estás seguro de que deseas eliminar el prestamo? (s/n): ");
+
+                                break;
+
+                            default:
+
+                                Default();
+                                break;
+
+                        }
+                    } while (Opcion != 0);
+
                     break;
 
                 case 4:
