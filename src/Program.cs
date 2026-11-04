@@ -146,6 +146,21 @@ class Program
     {
         Console.WriteLine("Has seleccionado: Reportes");
     }
+
+    static void GuardarDatos ()
+    {
+        Console.WriteLine("Has seleccionado: Guardar datos");
+    }
+
+    static void CargarDatos ()
+    {
+        Console.WriteLine("Has seleccionado: Cargar datos");
+    }
+
+    static void ReiniciarDatos ()
+    {
+        Console.WriteLine("Has seleccionado: Reiniciar datos ");
+    }
     static void MenuPrincipal()
     {
         int Opcion;
@@ -573,6 +588,50 @@ class Program
                 case 5:
 
                     Console.WriteLine("Has seleccionado: Guardar / Cargar datos");
+
+                    do
+                                {
+                                    Console.WriteLine("\n--- GUARDAR Y CARGAR DATOS ---");
+                                    Console.WriteLine("0. Volver Al Menú Anterior");
+                                    Console.WriteLine("1. Guardar Datos");
+                                    Console.WriteLine("2. Cargar Datos");
+                                    Console.WriteLine("3. Reiniciar datos");
+                                    Console.Write("Selecciona una opción: ");
+
+                                    Opcion = Convert.ToInt32(Console.ReadLine());
+
+                                    switch (Opcion)
+                                    {
+                                        case 0:
+
+                                            MensajeVolverMenuAnterior ();
+                                            break;
+
+                                        case 1:
+
+                                            GuardarDatos ();
+                                            break;
+
+                                        case 2:
+
+                                            CargarDatos ();
+                                            break;
+
+                                        case 3:
+
+                                            ReiniciarDatos ();
+                                            Console.Write("¿Estás seguro de que deseas Reiniciar datos (vaciar todo)? (s/n): ");
+                                            break;
+
+                                        default:
+
+                                            Default();
+                                            break;
+
+                                    }
+
+                                } while (Opcion != 0);
+
                     break;
 
                 case 6:
