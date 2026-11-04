@@ -62,6 +62,40 @@ class Program
         Console.WriteLine("Has seleccionado: Eliminar libro");
     }
 
+    static void RegistrarUsuario ()
+    {
+        Console.WriteLine("Has seleccionado: Registrar Usuario");
+    }
+
+    static void ListarUsuarios ()
+    {
+        Console.WriteLine("Has seleccionado: Listar Usuarios");
+    }
+
+    static void VerdDetalleUsuarioPorID ()
+    {
+        Console.WriteLine("Has seleccionado:  Ver detalle de usuario (por ID/ documento) ");
+    }
+
+    static void EditarNombre ()
+    {
+         Console.WriteLine("Has seleccionado: Editar nombre ");
+    }
+
+    static void EditarContacto ()
+    {
+         Console.WriteLine("Has seleccionado: Editar contacto ");
+    }
+
+    static void ActivarDesactivar ()
+    {
+         Console.WriteLine("Has seleccionado: Activar/Desacticar ");
+    }
+
+    static void EliminarUsuario ()
+    {
+         Console.WriteLine("Has seleccionado:  Eliminar usuario ");
+    }
     static void MenuPrincipal()
     {
         int Opcion;
@@ -134,17 +168,17 @@ class Program
 
                                         case 2:
 
-                                            ListarTodos ();
+                                            ListarTodos();
                                             break;
 
                                         case 3:
 
-                                            ListarDisponibles ();
+                                            ListarDisponibles();
                                             break;
 
                                         case 4:
 
-                                            ListarLibrosPrestados ();
+                                            ListarLibrosPrestados();
                                             break;
 
                                         default:
@@ -214,9 +248,9 @@ class Program
                                 EliminarLibro();
 
                                 Console.Write("¿Estás seguro de que deseas eliminar el libro? (s/n): ");
-                                
+
                                 break;
-                                
+
                             default:
 
                                 Default();
@@ -230,6 +264,105 @@ class Program
                 case 2:
 
                     Console.WriteLine("Has seleccionado: Ver usuarios");
+
+                    do
+                    {
+                        Console.WriteLine("\n--- MENÚ USUARIOS ---");
+                        Console.WriteLine("0. Volver Al Menú Anterior");
+                        Console.WriteLine("1. Registrar usuario");
+                        Console.WriteLine("2. Listar usuarios");
+                        Console.WriteLine("3. Ver detalle de usuario (por ID/ documento)");
+                        Console.WriteLine("4. Actualizar usuario");
+                        Console.WriteLine("5. Eliminar usuario");
+                        Console.Write("Selecciona una opción: ");
+
+                        Opcion = Convert.ToInt32(Console.ReadLine());
+
+                        switch (Opcion)
+                        {
+                            case 0:
+
+                                MensajeVolverMenuAnterior ();
+                                break;
+
+                            case 1:
+
+                                RegistrarUsuario ();
+                                break;
+
+                            case 2:
+
+                                ListarUsuarios ();
+                                break;
+
+                            case 3:
+
+                                VerdDetalleUsuarioPorID();
+                                break;
+
+                            case 4:
+
+                                Console.WriteLine("Has seleccionado: Actualizar Usuario");
+
+                                do
+                                {
+                                    Console.WriteLine("\n--- ACTUALIZAR USUARIO ---");
+                                    Console.WriteLine("1. Volver Al Menú Anterior");
+                                    Console.WriteLine("2. Editar Nombre");
+                                    Console.WriteLine("3. Editar Contacto");
+                                    Console.WriteLine("4. Activar / Desactivar ");
+                                    Console.Write("Selecciona una opción: ");
+
+                                    Opcion = Convert.ToInt32(Console.ReadLine());
+
+                                    switch (Opcion)
+                                    {
+                                        case 1:
+
+                                            MensajeVolverMenuAnterior ();
+                                            break;
+
+                                        case 2:
+
+                                            EditarNombre ();
+                                            break;
+
+                                        case 3:
+
+                                            EditarContacto ();
+                                            break;
+
+                                        case 4:
+
+                                            ActivarDesactivar ();
+                                            break;
+
+                                        default:
+
+                                            Default();
+                                            break;
+
+                                    }
+
+                                } while (Opcion != 1);
+                                break;
+
+                            case 5:
+
+                                EliminarUsuario ();
+
+                                Console.Write("¿Estás seguro de que deseas eliminar al usuario? (s/n): ");
+
+                                break;
+
+                            default:
+
+                                Default();
+                                break;
+
+                        }
+                    } while (Opcion != 0);
+
                     break;
 
                 case 3:
