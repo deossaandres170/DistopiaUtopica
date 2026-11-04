@@ -62,72 +62,72 @@ class Program
         Console.WriteLine("Has seleccionado: Eliminar libro");
     }
 
-    static void RegistrarUsuario ()
+    static void RegistrarUsuario()
     {
         Console.WriteLine("Has seleccionado: Registrar Usuario");
     }
 
-    static void ListarUsuarios ()
+    static void ListarUsuarios()
     {
         Console.WriteLine("Has seleccionado: Listar Usuarios");
     }
 
-    static void VerdDetalleUsuarioPorID ()
+    static void VerdDetalleUsuarioPorID()
     {
         Console.WriteLine("Has seleccionado:  Ver detalle de usuario (por ID/ documento) ");
     }
 
-    static void EditarNombre ()
+    static void EditarNombre()
     {
         Console.WriteLine("Has seleccionado: Editar nombre ");
     }
 
-    static void EditarContacto ()
+    static void EditarContacto()
     {
         Console.WriteLine("Has seleccionado: Editar contacto ");
     }
 
-    static void ActivarDesactivar ()
+    static void ActivarDesactivar()
     {
         Console.WriteLine("Has seleccionado: Activar/Desacticar ");
     }
 
-    static void EliminarUsuario ()
+    static void EliminarUsuario()
     {
         Console.WriteLine("Has seleccionado:  Eliminar usuario ");
     }
 
-    static void CrearPrestamo ()
+    static void CrearPrestamo()
     {
         Console.WriteLine("Has seleccionado:  Crear prestamo ");
     }
 
-    static void PrestamosListarTodos ()
+    static void PrestamosListarTodos()
     {
         Console.WriteLine("Has seleccionado:  Listar todos los  prestamos ");
     }
 
-    static void PrestamosListarActivos ()
+    static void PrestamosListarActivos()
     {
         Console.WriteLine("Has seleccionado:  Listar  los  prestamos activos  ");
     }
 
-    static void PreestamosListarCerrados ()
+    static void PreestamosListarCerrados()
     {
         Console.WriteLine("Has seleccionado:  Listar  los  prestamos cerrados o (devueltos)");
     }
 
-    static void RegistrarDevolucion ()
+    static void RegistrarDevolucion()
     {
         Console.WriteLine("Has seleccionado:  Registrar devolución ");
     }
 
-    static void ElliminarPrestamo ()
+    static void ElliminarPrestamo()
     {
         Console.WriteLine("Has seleccionado: Eliminar prestamos ");
     }
 
-    static void VerDetallePrestamoPorID ()
+    static void VerDetallePrestamoPorID()
     {
         Console.WriteLine("Has seleccionado:  Ver detalle de prestamo por (ID) ");
     }
@@ -137,27 +137,27 @@ class Program
         Console.WriteLine("Has seleccionado: Buscar libro");
     }
 
-    static void BuscarUsuario ()
+    static void BuscarUsuario()
     {
         Console.WriteLine("Has seleccionado: Buscar usuario");
     }
 
-    static void Reportes ()
+    static void Reportes()
     {
         Console.WriteLine("Has seleccionado: Reportes");
     }
 
-    static void GuardarDatos ()
+    static void GuardarDatos()
     {
         Console.WriteLine("Has seleccionado: Guardar datos");
     }
 
-    static void CargarDatos ()
+    static void CargarDatos()
     {
         Console.WriteLine("Has seleccionado: Cargar datos");
     }
 
-    static void ReiniciarDatos ()
+    static void ReiniciarDatos()
     {
         Console.WriteLine("Has seleccionado: Reiniciar datos ");
     }
@@ -309,12 +309,32 @@ class Program
                                 break;
 
                             case 5:
-
+                                
                                 EliminarLibro();
 
                                 Console.Write("¿Estás seguro de que deseas eliminar el libro? (s/n): ");
 
-                                break;
+                                string ConfirmacionEliminarLibro = Console.ReadLine();
+
+                                if (ConfirmacionEliminarLibro.Trim().ToLower() == "s")
+                                {
+                                    Console.WriteLine("Eliminación de libro exitosa");
+                                    break;
+                                }
+                                else if (ConfirmacionEliminarLibro.Trim().ToLower() == "n")
+                                {
+                                    Console.WriteLine("Se cancelo la eliminación del libro");
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Opción no válida. Regresando al menú...");
+
+                                    Opcion = 1;
+
+                                    break;
+                                }
+                                
 
                             default:
 
@@ -347,17 +367,17 @@ class Program
                         {
                             case 0:
 
-                                MensajeVolverMenuAnterior ();
+                                MensajeVolverMenuAnterior();
                                 break;
 
                             case 1:
 
-                                RegistrarUsuario ();
+                                RegistrarUsuario();
                                 break;
 
                             case 2:
 
-                                ListarUsuarios ();
+                                ListarUsuarios();
                                 break;
 
                             case 3:
@@ -384,22 +404,22 @@ class Program
                                     {
                                         case 1:
 
-                                            MensajeVolverMenuAnterior ();
+                                            MensajeVolverMenuAnterior();
                                             break;
 
                                         case 2:
 
-                                            EditarNombre ();
+                                            EditarNombre();
                                             break;
 
                                         case 3:
 
-                                            EditarContacto ();
+                                            EditarContacto();
                                             break;
 
                                         case 4:
 
-                                            ActivarDesactivar ();
+                                            ActivarDesactivar();
                                             break;
 
                                         default:
@@ -414,11 +434,29 @@ class Program
 
                             case 5:
 
-                                EliminarUsuario ();
+                                EliminarUsuario();
 
                                 Console.Write("¿Estás seguro de que deseas eliminar al usuario? (s/n): ");
+                                string ConfirmacionEliminarUsuario = Console.ReadLine();
 
-                                break;
+                                if (ConfirmacionEliminarUsuario.Trim().ToLower() == "s")
+                                {
+                                    Console.WriteLine("Eliminación de usuario exitosa");
+                                    break;
+                                }
+                                else if (ConfirmacionEliminarUsuario.Trim().ToLower() == "n")
+                                {
+                                    Console.WriteLine("Se cancelo la eliminación del usuario");
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Opción no válida. Regresando al menú...");
+
+                                    Opcion = 1;
+
+                                    break;
+                                }
 
                             default:
 
@@ -451,12 +489,12 @@ class Program
                         {
                             case 0:
 
-                                MensajeVolverMenuAnterior ();
+                                MensajeVolverMenuAnterior();
                                 break;
 
                             case 1:
 
-                                CrearPrestamo ();
+                                CrearPrestamo();
                                 break;
 
                             case 2:
@@ -478,22 +516,22 @@ class Program
                                     {
                                         case 1:
 
-                                            MensajeVolverMenuAnterior ();
+                                            MensajeVolverMenuAnterior();
                                             break;
 
                                         case 2:
 
-                                            PrestamosListarTodos ();
+                                            PrestamosListarTodos();
                                             break;
 
                                         case 3:
 
-                                            PrestamosListarActivos ();
+                                            PrestamosListarActivos();
                                             break;
 
                                         case 4:
 
-                                            PreestamosListarCerrados ();
+                                            PreestamosListarCerrados();
                                             break;
 
                                         default:
@@ -505,7 +543,7 @@ class Program
 
                                 } while (Opcion != 1);
 
-                                
+
                                 break;
 
                             case 3:
@@ -515,15 +553,36 @@ class Program
 
                             case 4:
 
-                                RegistrarDevolucion ();
+                                RegistrarDevolucion();
 
                                 break;
 
                             case 5:
 
-                                ElliminarPrestamo ();
-
                                 Console.Write("¿Estás seguro de que deseas eliminar el prestamo? (s/n): ");
+                                string ConfirmacionEliminacionPrestamo = Console.ReadLine();
+
+                                if (ConfirmacionEliminacionPrestamo.Trim().ToLower() == "s")
+                                {
+                                    Console.WriteLine("EL prestamo se elimino con exito...");
+                                    break;
+                                }
+                                else if (ConfirmacionEliminacionPrestamo.Trim().ToLower() == "n")
+                                {
+                                    Console.WriteLine("Se cancelo la eliminación de el prestamo...");
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Opción no válida. Regresando al menú...");
+
+                                    Opcion = 1;
+
+                                    break;
+                                }
+
+
+                                ElliminarPrestamo();
 
                                 break;
 
@@ -542,46 +601,46 @@ class Program
                     Console.WriteLine("Has seleccionado: Búsquedas y reportes");
 
                     do
-                                {
-                                    Console.WriteLine("\n--- BÚSQUEDAS Y REPORTES ---");
-                                    Console.WriteLine("0. Volver Al Menú Anterior");
-                                    Console.WriteLine("1. Buscar Libro");
-                                    Console.WriteLine("2. Buscar usuario");
-                                    Console.WriteLine("3. Reportes");
-                                    Console.Write("Selecciona una opción: ");
+                    {
+                        Console.WriteLine("\n--- BÚSQUEDAS Y REPORTES ---");
+                        Console.WriteLine("0. Volver Al Menú Anterior");
+                        Console.WriteLine("1. Buscar Libro");
+                        Console.WriteLine("2. Buscar usuario");
+                        Console.WriteLine("3. Reportes");
+                        Console.Write("Selecciona una opción: ");
 
-                                    Opcion = Convert.ToInt32(Console.ReadLine());
+                        Opcion = Convert.ToInt32(Console.ReadLine());
 
-                                    switch (Opcion)
-                                    {
-                                        case 0:
+                        switch (Opcion)
+                        {
+                            case 0:
 
-                                            MensajeVolverMenuAnterior ();
-                                            break;
+                                MensajeVolverMenuAnterior();
+                                break;
 
-                                        case 1:
+                            case 1:
 
-                                            BuscarLibro ();
-                                            break;
+                                BuscarLibro();
+                                break;
 
-                                        case 2:
+                            case 2:
 
-                                            BuscarUsuario ();
-                                            break;
+                                BuscarUsuario();
+                                break;
 
-                                        case 3:
+                            case 3:
 
-                                            Reportes ();
-                                            break;
+                                Reportes();
+                                break;
 
-                                        default:
+                            default:
 
-                                            Default();
-                                            break;
+                                Default();
+                                break;
 
-                                    }
+                        }
 
-                                } while (Opcion != 0);
+                    } while (Opcion != 0);
 
                     break;
 
@@ -590,47 +649,71 @@ class Program
                     Console.WriteLine("Has seleccionado: Guardar / Cargar datos");
 
                     do
+                    {
+                        Console.WriteLine("\n--- GUARDAR Y CARGAR DATOS ---");
+                        Console.WriteLine("0. Volver Al Menú Anterior");
+                        Console.WriteLine("1. Guardar Datos");
+                        Console.WriteLine("2. Cargar Datos");
+                        Console.WriteLine("3. Reiniciar datos");
+                        Console.Write("Selecciona una opción: ");
+
+                        Opcion = Convert.ToInt32(Console.ReadLine());
+
+                        switch (Opcion)
+                        {
+                            case 0:
+
+                                MensajeVolverMenuAnterior();
+                                break;
+
+                            case 1:
+
+                                GuardarDatos();
+                                break;
+
+                            case 2:
+
+                                CargarDatos();
+                                break;
+
+                            case 3:
+
+                                Console.Write("¿Estás seguro de que deseas Reiniciar datos (vaciar todo)? (s/n): ");
+
+                                string ConfirmacionVaciar = Console.ReadLine();
+
+                                if (ConfirmacionVaciar.Trim().ToLower() == "s")
                                 {
-                                    Console.WriteLine("\n--- GUARDAR Y CARGAR DATOS ---");
-                                    Console.WriteLine("0. Volver Al Menú Anterior");
-                                    Console.WriteLine("1. Guardar Datos");
-                                    Console.WriteLine("2. Cargar Datos");
-                                    Console.WriteLine("3. Reiniciar datos");
-                                    Console.Write("Selecciona una opción: ");
+                                    Console.WriteLine("Vaciado Exitoso...");
+                                    break;
+                                }
+                                else if (ConfirmacionVaciar.Trim().ToLower() == "n")
+                                {
+                                    Console.WriteLine("Se cancelo el vaciado...");
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.WriteLine("Opción no válida. Regresando al menú...");
 
-                                    Opcion = Convert.ToInt32(Console.ReadLine());
+                                    Opcion = 1;
 
-                                    switch (Opcion)
-                                    {
-                                        case 0:
+                                    break;
+                                }
 
-                                            MensajeVolverMenuAnterior ();
-                                            break;
 
-                                        case 1:
+                                ReiniciarDatos();
 
-                                            GuardarDatos ();
-                                            break;
+                                break;
 
-                                        case 2:
+                            default:
 
-                                            CargarDatos ();
-                                            break;
+                                Default();
+                                break;
 
-                                        case 3:
+                        }
 
-                                            ReiniciarDatos ();
-                                            Console.Write("¿Estás seguro de que deseas Reiniciar datos (vaciar todo)? (s/n): ");
-                                            break;
-
-                                        default:
-
-                                            Default();
-                                            break;
-
-                                    }
-
-                                } while (Opcion != 0);
+                    } while (Opcion != 0);
 
                     break;
 
@@ -646,7 +729,7 @@ class Program
                         Console.WriteLine("Saliendo del programa...");
                         break;
                     }
-                    else if(ConfirmacionSalir.Trim().ToLower() == "n")
+                    else if (ConfirmacionSalir.Trim().ToLower() == "n")
                     {
                         Console.WriteLine(" No se guardaron los cambios de la aplicación...");
                         Console.WriteLine("Saliendo del programa...");
