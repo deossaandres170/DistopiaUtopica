@@ -158,5 +158,3 @@ Estas limitaciones corresponden al alcance establecido para esta primera etapa d
 Estudiante de Análisis y Desarrollo de Software (ADSO).
 
 ## Repositorio
-
-[GitHub – Distopía Utópica](https://github.com/deossaandres170/DistopiaUtopica)
