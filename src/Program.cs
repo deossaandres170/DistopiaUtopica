@@ -636,8 +636,30 @@ class Program
 
                 case 6:
 
-                    Console.WriteLine("Saliendo del programa...");
-                    break;
+                    Console.Write("¿Deseas guardar los cambios antes de  salir ? (s/n): ");
+
+                    string ConfirmacionSalir = Console.ReadLine();
+
+                    if (ConfirmacionSalir.Trim().ToLower() == "s")
+                    {
+                        Console.WriteLine("Guardado exitoso...");
+                        Console.WriteLine("Saliendo del programa...");
+                        break;
+                    }
+                    else if(ConfirmacionSalir.Trim().ToLower() == "n")
+                    {
+                        Console.WriteLine(" No se guardaron los cambios de la aplicación...");
+                        Console.WriteLine("Saliendo del programa...");
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Opción no válida. Regresando al menú...");
+
+                        Opcion = 1;
+
+                        break;
+                    }
 
                 default:
 
