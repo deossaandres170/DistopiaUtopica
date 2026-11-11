@@ -15,7 +15,7 @@ namespace system_books.Models
         public Usuario(string identificacion, string nombre, string correo)
         {
             Identificacion = identificacion;
-            Nombre = Nombre;
+            Nombre = nombre;
             Correo = correo;
             Activo = true; 
         }
