@@ -8,6 +8,18 @@ namespace DistopiaUtopica.Services
 {
     public class PrestamoService
     {
+        public int ObtenerTotalPrestamos() => prestamos.Count;
+        public int ObtenerPrestamosActivos() => prestamos.Count(p => p.Estado == EstadoPrestamo.Activo);
+        public int ObtenerPrestamosVencidos() => prestamos.Count(p => p.Estado == EstadoPrestamo.Vencido);
+        public int ObtenerPrestamosDevueltos() => prestamos.Count(p => p.Estado == EstadoPrestamo.Devuelto);
+
+        public double ObtenerPromedioDiasPrestamo()
+        {
+            var devueltos = prestamos.Where(p => p.FechaDevolucion.HasValue).ToList();
+            if (!devueltos.Any()) return 0;
+
+            return devueltos.Average(p => (p.FechaDevolucion!.Value - p.FechaPrestamo).TotalDays);
+        }
         private List<Prestamo> prestamos = new List<Prestamo>();
 
         // 3. Operaciones básicas

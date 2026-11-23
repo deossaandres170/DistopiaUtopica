@@ -3,10 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using system_books.Models;
 
-namespace  DistopiaUtopica.Services
+namespace DistopiaUtopica.Services
 {
     public class LibroService
     {
+        public int ObtenerTotalLibros() => libros.Count;
+        public int ObtenerLibrosDisponibles() => libros.Count(l => l.Disponible);
+        public int ObtenerLibrosPrestados() => libros.Count(l => !l.Disponible);
         private List<Libro> libros = new List<Libro>();
 
         // 3. Operaciones básicas

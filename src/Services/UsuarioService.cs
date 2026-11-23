@@ -8,6 +8,9 @@ namespace DistopiaUtopica.Services
 {
     public class UsuarioService
     {
+        public int ObtenerTotalUsuarios() => usuarios.Count;
+        public int ObtenerUsuariosActivos() => usuarios.Count(u => u.Activo);
+        public int ObtenerUsuariosInactivos() => usuarios.Count(u => !u.Activo);
         private List<Usuario> usuarios = new List<Usuario>();
 
         // 3. Operaciones básicas
