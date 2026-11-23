@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using system_books.Models;
+using DistopiaUtopica.Services; // Ajusta si usaste otro namespace en tu carpeta Services
 
 namespace system_books
 {
@@ -9,157 +11,126 @@ namespace system_books
         {
             MenuPrincipal();
         }
-
         static void MensajeVolverMenuAnterior()
         {
             Console.WriteLine("Regresando Al Menú Anterior...");
         }
-
         static void Default()
         {
             Console.WriteLine("Opción no válida. Inténtalo de nuevo.");
         }
-
         static void RegistrarLibro()
         {
             Console.WriteLine("Has seleccionado: Registrar Libro");
         }
-
         static void ListarTodos()
         {
             Console.WriteLine("Has seleccionado: Listar todos");
         }
-
         static void ListarDisponibles()
         {
             Console.WriteLine("Has seleccionado: Listar disponibles");
         }
-
         static void ListarLibrosPrestados()
         {
             Console.WriteLine("Has seleccionado: Listar prestamos");
         }
-
         static void VerDetallePorID()
         {
             Console.WriteLine("Has seleccionado: Ver detalle (por ID/ISBN)");
         }
-
         static void EditarTitulo()
         {
             Console.WriteLine("Has seleccionado: Editar Título");
         }
-
         static void EditarAutor()
         {
             Console.WriteLine("Has seleccionado: Editar Autor");
         }
-
         static void EditarAño()
         {
             Console.WriteLine("Has seleccionado: Editar Año / Categoría");
         }
-
         static void EliminarLibro()
         {
             Console.WriteLine("Has seleccionado: Eliminar libro");
         }
-
         static void RegistrarUsuario()
         {
             Console.WriteLine("Has seleccionado: Registrar Usuario");
         }
-
         static void ListarUsuarios()
         {
             Console.WriteLine("Has seleccionado: Listar Usuarios");
         }
-
         static void VerdDetalleUsuarioPorID()
         {
-            Console.WriteLine("Has seleccionado:  Ver detalle de usuario (por ID/ documento) ");
+            Console.WriteLine("Has seleccionado: Ver detalle de usuario (por ID/ documento) ");
         }
-
         static void EditarNombre()
         {
             Console.WriteLine("Has seleccionado: Editar nombre ");
         }
-
         static void EditarContacto()
         {
             Console.WriteLine("Has seleccionado: Editar contacto ");
         }
-
         static void ActivarDesactivar()
         {
             Console.WriteLine("Has seleccionado: Activar/Desacticar ");
         }
-
         static void EliminarUsuario()
         {
-            Console.WriteLine("Has seleccionado:  Eliminar usuario ");
+            Console.WriteLine("Has seleccionado: Eliminar usuario ");
         }
-
         static void CrearPrestamo()
         {
-            Console.WriteLine("Has seleccionado:  Crear prestamo ");
+            Console.WriteLine("Has seleccionado: Crear prestamo ");
         }
-
         static void PrestamosListarTodos()
         {
-            Console.WriteLine("Has seleccionado:  Listar todos los  prestamos ");
+            Console.WriteLine("Has seleccionado: Listar todos los prestamos ");
         }
-
         static void PrestamosListarActivos()
         {
-            Console.WriteLine("Has seleccionado:  Listar  los  prestamos activos  ");
+            Console.WriteLine("Has seleccionado: Listar los prestamos activos ");
         }
-
         static void PreestamosListarCerrados()
         {
-            Console.WriteLine("Has seleccionado:  Listar  los  prestamos cerrados o (devueltos)");
+            Console.WriteLine("Has seleccionado: Listar los prestamos cerrados o (devueltos)");
         }
-
         static void RegistrarDevolucion()
         {
-            Console.WriteLine("Has seleccionado:  Registrar devolución ");
+            Console.WriteLine("Has seleccionado: Registrar devolución ");
         }
-
         static void ElliminarPrestamo()
         {
             Console.WriteLine("Has seleccionado: Eliminar prestamos ");
         }
-
         static void VerDetallePrestamoPorID()
         {
-            Console.WriteLine("Has seleccionado:  Ver detalle de prestamo por (ID) ");
+            Console.WriteLine("Has seleccionado: Ver detalle de prestamo por (ID) ");
         }
-
         static void BuscarLibro()
         {
             Console.WriteLine("Has seleccionado: Buscar libro");
         }
-
         static void BuscarUsuario()
         {
             Console.WriteLine("Has seleccionado: Buscar usuario");
         }
-
         static void Reportes()
         {
             Console.WriteLine("Has seleccionado: Reportes");
         }
-
         static void GuardarDatos()
         {
             Console.WriteLine("Has seleccionado: Guardar datos");
         }
-
         static void CargarDatos()
         {
             Console.WriteLine("Has seleccionado: Cargar datos");
         }
-
         static void ReiniciarDatos()
         {
             Console.WriteLine("Has seleccionado: Reiniciar datos ");
@@ -167,7 +138,6 @@ namespace system_books
         static void MenuPrincipal()
         {
             int Opcion;
-
             do
             {
                 Console.WriteLine("\n--- MENÚ PRINCIPAL ---");
@@ -178,16 +148,13 @@ namespace system_books
                 Console.WriteLine("5. Guardar / Cargar datos");
                 Console.WriteLine("6. Salir");
                 Console.WriteLine("7. Ejecutar Pruebas de Objetos (Evidencia EV07)");
+                Console.WriteLine("8. Ejecutar Pruebas de Servicios, List<T>, KPIs y Array vs List (Evidencia EV08)");
                 Console.Write("Selecciona una opción: ");
-
                 Opcion = Convert.ToInt32(Console.ReadLine());
-
                 switch (Opcion)
                 {
                     case 1:
-
                         Console.WriteLine("Has seleccionado: Ver libros");
-
                         do
                         {
                             Console.WriteLine("\n--- MENÚ LIBROS ---");
@@ -198,25 +165,17 @@ namespace system_books
                             Console.WriteLine("4. Actualizar libro");
                             Console.WriteLine("5. Eliminar libro");
                             Console.Write("Selecciona una opción: ");
-
                             Opcion = Convert.ToInt32(Console.ReadLine());
-
                             switch (Opcion)
                             {
                                 case 0:
-
                                     MensajeVolverMenuAnterior();
                                     break;
-
                                 case 1:
-
                                     RegistrarLibro();
                                     break;
-
                                 case 2:
-
                                     Console.WriteLine("Has seleccionado: Listar Libros");
-
                                     do
                                     {
                                         Console.WriteLine("\n--- LISTAR LIBROS ---");
@@ -225,50 +184,32 @@ namespace system_books
                                         Console.WriteLine("3. Listar disponibles");
                                         Console.WriteLine("4. Listar prestados");
                                         Console.Write("Selecciona una opción: ");
-
                                         Opcion = Convert.ToInt32(Console.ReadLine());
-
                                         switch (Opcion)
                                         {
                                             case 1:
-
                                                 Console.WriteLine("Regresando Al Menú Anterior...");
                                                 break;
-
                                             case 2:
-
                                                 ListarTodos();
                                                 break;
-
                                             case 3:
-
                                                 ListarDisponibles();
                                                 break;
-
                                             case 4:
-
                                                 ListarLibrosPrestados();
                                                 break;
-
                                             default:
-
                                                 Default();
                                                 break;
-
                                         }
-
                                     } while (Opcion != 1);
                                     break;
-
                                 case 3:
-
                                     VerDetallePorID();
                                     break;
-
                                 case 4:
-
                                     Console.WriteLine("Has seleccionado: Actualizar libro");
-
                                     do
                                     {
                                         Console.WriteLine("\n--- ACTUALIZAR LIBRO ---");
@@ -277,49 +218,31 @@ namespace system_books
                                         Console.WriteLine("3. Editar Autor");
                                         Console.WriteLine("4. Editar Año / Categoria");
                                         Console.Write("Selecciona una opción: ");
-
                                         Opcion = Convert.ToInt32(Console.ReadLine());
-
                                         switch (Opcion)
                                         {
                                             case 1:
-
                                                 MensajeVolverMenuAnterior();
                                                 break;
-
                                             case 2:
-
                                                 EditarTitulo();
                                                 break;
-
                                             case 3:
-
                                                 EditarAutor();
                                                 break;
-
                                             case 4:
-
                                                 EditarAño();
                                                 break;
-
                                             default:
-
                                                 Default();
                                                 break;
-
                                         }
-
                                     } while (Opcion != 1);
                                     break;
-
                                 case 5:
-
                                     EliminarLibro();
-
                                     Console.Write("¿Estás seguro de que deseas eliminar el libro? (s/n): ");
-
                                     string ConfirmacionEliminarLibro = Console.ReadLine();
-
                                     if (ConfirmacionEliminarLibro.Trim().ToLower() == "s")
                                     {
                                         Console.WriteLine("Eliminación de libro exitosa");
@@ -333,27 +256,17 @@ namespace system_books
                                     else
                                     {
                                         Console.WriteLine("Opción no válida. Regresando al menú...");
-
                                         Opcion = 1;
-
                                         break;
                                     }
-
-
                                 default:
-
                                     Default();
                                     break;
-
                             }
                         } while (Opcion != 0);
-
                         break;
-
                     case 2:
-
                         Console.WriteLine("Has seleccionado: Ver usuarios");
-
                         do
                         {
                             Console.WriteLine("\n--- MENÚ USUARIOS ---");
@@ -364,35 +277,23 @@ namespace system_books
                             Console.WriteLine("4. Actualizar usuario");
                             Console.WriteLine("5. Eliminar usuario");
                             Console.Write("Selecciona una opción: ");
-
                             Opcion = Convert.ToInt32(Console.ReadLine());
-
                             switch (Opcion)
                             {
                                 case 0:
-
                                     MensajeVolverMenuAnterior();
                                     break;
-
                                 case 1:
-
                                     RegistrarUsuario();
                                     break;
-
                                 case 2:
-
                                     ListarUsuarios();
                                     break;
-
                                 case 3:
-
                                     VerdDetalleUsuarioPorID();
                                     break;
-
                                 case 4:
-
                                     Console.WriteLine("Has seleccionado: Actualizar Usuario");
-
                                     do
                                     {
                                         Console.WriteLine("\n--- ACTUALIZAR USUARIO ---");
@@ -401,48 +302,31 @@ namespace system_books
                                         Console.WriteLine("3. Editar Contacto");
                                         Console.WriteLine("4. Activar / Desactivar ");
                                         Console.Write("Selecciona una opción: ");
-
                                         Opcion = Convert.ToInt32(Console.ReadLine());
-
                                         switch (Opcion)
                                         {
                                             case 1:
-
                                                 MensajeVolverMenuAnterior();
                                                 break;
-
                                             case 2:
-
                                                 EditarNombre();
                                                 break;
-
                                             case 3:
-
                                                 EditarContacto();
                                                 break;
-
                                             case 4:
-
                                                 ActivarDesactivar();
                                                 break;
-
                                             default:
-
                                                 Default();
                                                 break;
-
                                         }
-
                                     } while (Opcion != 1);
                                     break;
-
                                 case 5:
-
                                     EliminarUsuario();
-
                                     Console.Write("¿Estás seguro de que deseas eliminar al usuario? (s/n): ");
                                     string ConfirmacionEliminarUsuario = Console.ReadLine();
-
                                     if (ConfirmacionEliminarUsuario.Trim().ToLower() == "s")
                                     {
                                         Console.WriteLine("Eliminación de usuario exitosa");
@@ -456,26 +340,17 @@ namespace system_books
                                     else
                                     {
                                         Console.WriteLine("Opción no válida. Regresando al menú...");
-
                                         Opcion = 1;
-
                                         break;
                                     }
-
                                 default:
-
                                     Default();
                                     break;
-
                             }
                         } while (Opcion != 0);
-
                         break;
-
                     case 3:
-
                         Console.WriteLine("Has seleccionado: Prestamos");
-
                         do
                         {
                             Console.WriteLine("\n--- MENÚ PRESTAMOS ---");
@@ -486,25 +361,17 @@ namespace system_books
                             Console.WriteLine("4. Registrar Devolución");
                             Console.WriteLine("5. Eliminar Préstamo");
                             Console.Write("Selecciona una opción: ");
-
                             Opcion = Convert.ToInt32(Console.ReadLine());
-
                             switch (Opcion)
                             {
                                 case 0:
-
                                     MensajeVolverMenuAnterior();
                                     break;
-
                                 case 1:
-
                                     CrearPrestamo();
                                     break;
-
                                 case 2:
-
                                     Console.WriteLine("Has seleccionado: Listar Préstamo");
-
                                     do
                                     {
                                         Console.WriteLine("\n--- LISTAR PRESTAMO ---");
@@ -513,59 +380,36 @@ namespace system_books
                                         Console.WriteLine("3. Listar Activos");
                                         Console.WriteLine("4. Listar Cerrados (devueltos) ");
                                         Console.Write("Selecciona una opción: ");
-
                                         Opcion = Convert.ToInt32(Console.ReadLine());
-
                                         switch (Opcion)
                                         {
                                             case 1:
-
                                                 MensajeVolverMenuAnterior();
                                                 break;
-
                                             case 2:
-
                                                 PrestamosListarTodos();
                                                 break;
-
                                             case 3:
-
                                                 PrestamosListarActivos();
                                                 break;
-
                                             case 4:
-
                                                 PreestamosListarCerrados();
                                                 break;
-
                                             default:
-
                                                 Default();
                                                 break;
-
                                         }
-
                                     } while (Opcion != 1);
-
-
                                     break;
-
                                 case 3:
-
                                     VerDetallePrestamoPorID();
                                     break;
-
                                 case 4:
-
                                     RegistrarDevolucion();
-
                                     break;
-
                                 case 5:
-
                                     Console.Write("¿Estás seguro de que deseas eliminar el prestamo? (s/n): ");
                                     string ConfirmacionEliminacionPrestamo = Console.ReadLine();
-
                                     if (ConfirmacionEliminacionPrestamo.Trim().ToLower() == "s")
                                     {
                                         Console.WriteLine("EL prestamo se elimino con exito...");
@@ -579,31 +423,19 @@ namespace system_books
                                     else
                                     {
                                         Console.WriteLine("Opción no válida. Regresando al menú...");
-
                                         Opcion = 1;
-
                                         break;
                                     }
-
-
                                     ElliminarPrestamo();
-
                                     break;
-
                                 default:
-
                                     Default();
                                     break;
-
                             }
                         } while (Opcion != 0);
-
                         break;
-
                     case 4:
-
                         Console.WriteLine("Has seleccionado: Búsquedas y reportes");
-
                         do
                         {
                             Console.WriteLine("\n--- BÚSQUEDAS Y REPORTES ---");
@@ -612,46 +444,29 @@ namespace system_books
                             Console.WriteLine("2. Buscar usuario");
                             Console.WriteLine("3. Reportes");
                             Console.Write("Selecciona una opción: ");
-
                             Opcion = Convert.ToInt32(Console.ReadLine());
-
                             switch (Opcion)
                             {
                                 case 0:
-
                                     MensajeVolverMenuAnterior();
                                     break;
-
                                 case 1:
-
                                     BuscarLibro();
                                     break;
-
                                 case 2:
-
                                     BuscarUsuario();
                                     break;
-
                                 case 3:
-
                                     Reportes();
                                     break;
-
                                 default:
-
                                     Default();
                                     break;
-
                             }
-
                         } while (Opcion != 0);
-
                         break;
-
                     case 5:
-
                         Console.WriteLine("Has seleccionado: Guardar / Cargar datos");
-
                         do
                         {
                             Console.WriteLine("\n--- GUARDAR Y CARGAR DATOS ---");
@@ -660,32 +475,21 @@ namespace system_books
                             Console.WriteLine("2. Cargar Datos");
                             Console.WriteLine("3. Reiniciar datos");
                             Console.Write("Selecciona una opción: ");
-
                             Opcion = Convert.ToInt32(Console.ReadLine());
-
                             switch (Opcion)
                             {
                                 case 0:
-
                                     MensajeVolverMenuAnterior();
                                     break;
-
                                 case 1:
-
                                     GuardarDatos();
                                     break;
-
                                 case 2:
-
                                     CargarDatos();
                                     break;
-
                                 case 3:
-
                                     Console.Write("¿Estás seguro de que deseas Reiniciar datos (vaciar todo)? (s/n): ");
-
                                     string ConfirmacionVaciar = Console.ReadLine();
-
                                     if (ConfirmacionVaciar.Trim().ToLower() == "s")
                                     {
                                         Console.WriteLine("Vaciado Exitoso...");
@@ -699,34 +503,20 @@ namespace system_books
                                     else
                                     {
                                         Console.WriteLine("Opción no válida. Regresando al menú...");
-
                                         Opcion = 1;
-
                                         break;
                                     }
-
-
                                     ReiniciarDatos();
-
                                     break;
-
                                 default:
-
                                     Default();
                                     break;
-
                             }
-
                         } while (Opcion != 0);
-
                         break;
-
                     case 6:
-
-                        Console.Write("¿Deseas guardar los cambios antes de  salir ? (s/n): ");
-
+                        Console.Write("¿Deseas guardar los cambios antes de salir ? (s/n): ");
                         string ConfirmacionSalir = Console.ReadLine();
-
                         if (ConfirmacionSalir.Trim().ToLower() == "s")
                         {
                             Console.WriteLine("Guardado exitoso...");
@@ -742,48 +532,38 @@ namespace system_books
                         else
                         {
                             Console.WriteLine("Opción no válida. Regresando al menú...");
-
                             Opcion = 1;
-
                             break;
                         }
-
                     case 7:
-
                         // Llamamos al método con los objetos de prueba de la EV07
                         EjecutarPruebasEV07();
                         break;
-
+                    case 8:
+                        // Llamamos al método con las pruebas de Services, List<T>, KPIs y Array vs List de la EV08
+                        EjecutarPruebasEV08();
+                        break;
                     default:
-
                         Default();
                         break;
-
-                    
-
                 }
             } while (Opcion != 6);
         }
-
         // --- MÉTODO CON LAS PRUEBAS OBLIGATORIAS DE LA EV07 ---
         static void EjecutarPruebasEV07()
         {
             Console.Clear();
             Console.WriteLine("==================================================");
-            Console.WriteLine("     PRUEBAS DE OBJETOS Y MODELOS (EV07)          ");
+            Console.WriteLine(" PRUEBAS DE OBJETOS Y MODELOS (EV07) ");
             Console.WriteLine("==================================================\n");
-
             // 1. Crear 2 Libros
             Libro libro1 = new Libro("978-0143127741", "Cien años de soledad", "Gabriel García Márquez", 1967);
             Libro libro2 = new Libro("978-0451524935", "1984", "George Orwell", 1949);
-
             // 2. Crear 2 Usuarios
             Usuario usuario1 = new Usuario("10203040", "Ana María Gómez", "ana.gomez@email.com");
             Usuario usuario2 = new Usuario("50607080", "Carlos Pérez", "carlos.perez@email.com");
-
             // 3. Crear 1 Préstamo
             Prestamo prestamo1 = new Prestamo(1, libro1, usuario1);
-
             // --- MOSTRAR INFORMACIÓN EN CONSOLA ---
             Console.WriteLine("--- 1. RESÚMENES ---");
             Console.WriteLine(libro1.ResumenCorto());
@@ -791,14 +571,12 @@ namespace system_books
             Console.WriteLine(usuario1.ResumenCorto());
             Console.WriteLine(usuario2.ResumenCorto());
             Console.WriteLine(prestamo1.ResumenCorto());
-
             Console.WriteLine("\n--- 2. DETALLES COMPLETOS ---");
             Console.WriteLine(libro1.DetalleCompleto());
             Console.WriteLine(libro2.DetalleCompleto());
             Console.WriteLine(usuario1.DetalleCompleto());
             Console.WriteLine(usuario2.DetalleCompleto());
             Console.WriteLine(prestamo1.DetalleCompleto());
-
             Console.WriteLine("\n--- 3. VALIDACIONES ESPECÍFICAS ---");
             Console.WriteLine($"¿Libro 1 está disponible? -> {libro1.Disponible}");
             Console.WriteLine($"¿Libro 2 está disponible? -> {libro2.Disponible}");
@@ -806,9 +584,99 @@ namespace system_books
             Console.WriteLine($"Estado inicial del Préstamo -> {prestamo1.Estado}");
             Console.WriteLine($"¿El préstamo está vencido? -> {prestamo1.EstaVencido()}");
             Console.WriteLine($"Días transcurridos del préstamo -> {prestamo1.DiasTranscurridos()} días");
-
             Console.WriteLine("\n==================================================");
         }
 
+        // --- MÉTODO CON LAS PRUEBAS OBLIGATORIAS DE LA EV08 ---
+        static void EjecutarPruebasEV08()
+        {
+            Console.Clear();
+            Console.WriteLine("==================================================");
+            Console.WriteLine(" PRUEBAS DE SERVICIOS, LIST<T>, KPIs Y ARRAY VS LIST (EV08) ");
+            Console.WriteLine("==================================================\n");
+
+            // 7. Comparación Array vs List
+            // Array: tamaño fijo al declararse; no permite agregar/quitar elementos dinámicamente.
+            string[] titulosArray = new string[2];
+            titulosArray[0] = "Cien años de soledad";
+            titulosArray[1] = "1984";
+
+            // List<T>: colección dinámica que crece o decrece automáticamente y soporta Add, Remove y LINQ.
+            List<string> titulosList = new List<string>();
+            titulosList.Add("Cien años de soledad");
+            titulosList.Add("1984");
+            titulosList.Add("El túnel");
+            titulosList.Remove("1984");
+
+            Console.WriteLine("--- 1. COMPARACIÓN ARRAY VS LIST ---");
+            Console.WriteLine($"Array fijo (Length): {titulosArray.Length} elementos.");
+            Console.WriteLine($"List<T> dinámica (Count): {titulosList.Count} elementos.");
+            Console.WriteLine("Explicación: El Array tiene longitud fija definida al crearse; List<T> ajusta su tamaño dinámicamente y facilita búsquedas, ordenaciones y estadísticas.");
+
+            // 8. Instanciar servicios y agregar datos de prueba
+            LibroService libroService = new LibroService();
+            UsuarioService usuarioService = new UsuarioService();
+            PrestamoService prestamoService = new PrestamoService();
+
+            Libro libro1 = new Libro("978-0143127741", "Cien años de soledad", "Gabriel García Márquez", 1967);
+            Libro libro2 = new Libro("978-0451524935", "1984", "George Orwell", 1949);
+            Libro libro3 = new Libro("978-0061120084", "Matar a un ruiseñor", "Harper Lee", 1960);
+
+            libroService.AgregarLibro(libro1);
+            libroService.AgregarLibro(libro2);
+            libroService.AgregarLibro(libro3);
+
+            Usuario usuario1 = new Usuario("10203040", "Ana María Gómez", "ana.gomez@email.com");
+            Usuario usuario2 = new Usuario("50607080", "Carlos Pérez", "carlos.perez@email.com");
+
+            usuarioService.AgregarUsuario(usuario1);
+            usuarioService.AgregarUsuario(usuario2);
+
+            Prestamo prestamo1 = new Prestamo(1, libro1, usuario1);
+            Prestamo prestamo2 = new Prestamo(2, libro2, usuario2);
+
+            prestamoService.AgregarPrestamo(prestamo1);
+            prestamoService.AgregarPrestamo(prestamo2);
+
+            // Búsquedas
+            Console.WriteLine("\n--- 2. BÚSQUEDAS ---");
+            var encontradoIsbn = libroService.BuscarPorIsbn("978-0451524935");
+            Console.WriteLine($"Buscar libro por ISBN: {(encontradoIsbn != null ? encontradoIsbn.ResumenCorto() : "No encontrado")}");
+
+            var encontradoDoc = usuarioService.BuscarPorDocumento("10203040");
+            Console.WriteLine($"Buscar usuario por documento: {(encontradoDoc != null ? encontradoDoc.ResumenCorto() : "No encontrado")}");
+
+            var encontradoPrestamo = prestamoService.BuscarPorId(1);
+            Console.WriteLine($"Buscar préstamo por ID 1: {(encontradoPrestamo != null ? encontradoPrestamo.ResumenCorto() : "No encontrado")}");
+
+            // Ordenaciones
+            Console.WriteLine("\n--- 3. ORDENACIONES ---");
+            Console.WriteLine("Libros ordenados por título:");
+            foreach (var l in libroService.OrdenarPorTitulo())
+            {
+                Console.WriteLine($" - {l.ResumenCorto()}");
+            }
+
+            Console.WriteLine("Usuarios ordenados por nombre:");
+            foreach (var u in usuarioService.OrdenarPorNombre())
+            {
+                Console.WriteLine($" - {u.ResumenCorto()}");
+            }
+
+            Console.WriteLine("Préstamos ordenados por fecha límite:");
+            foreach (var p in prestamoService.OrdenarPorFechaLimite())
+            {
+                Console.WriteLine($" - {p.ResumenCorto()}");
+            }
+
+            // Estadísticas (KPIs)
+            Console.WriteLine("\n--- 4. ESTADÍSTICAS (KPIs) ---");
+            Console.WriteLine($"Libros -> Total: {libroService.ObtenerTotalLibros()} | Disponibles: {libroService.ObtenerLibrosDisponibles()} | Prestados: {libroService.ObtenerLibrosPrestados()}");
+            Console.WriteLine($"Usuarios -> Total: {usuarioService.ObtenerTotalUsuarios()} | Activos: {usuarioService.ObtenerUsuariosActivos()} | Inactivos: {usuarioService.ObtenerUsuariosInactivos()}");
+            Console.WriteLine($"Préstamos -> Total: {prestamoService.ObtenerTotalPrestamos()} | Activos: {prestamoService.ObtenerPrestamosActivos()} | Vencidos: {prestamoService.ObtenerPrestamosVencidos()} | Devueltos: {prestamoService.ObtenerPrestamosDevueltos()}");
+            Console.WriteLine($"Promedio días de préstamo: {prestamoService.ObtenerPromedioDiasPrestamo():F1} días");
+
+            Console.WriteLine("\n==================================================");
+        }
     }
 }
