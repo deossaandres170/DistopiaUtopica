@@ -150,7 +150,18 @@ namespace system_books
                 Console.WriteLine("7. Ejecutar Pruebas de Objetos (Evidencia EV07)");
                 Console.WriteLine("8. Ejecutar Pruebas de Servicios, List<T>, KPIs y Array vs List (Evidencia EV08)");
                 Console.Write("Selecciona una opción: ");
-                Opcion = Convert.ToInt32(Console.ReadLine());
+                Opcion = LeerOpcion();
+
+                static int LeerOpcion()
+                {
+                    string? entrada = Console.ReadLine();
+                    if (int.TryParse(entrada, out int opcion))
+                    {
+                        return opcion;
+                    }
+
+                    return -1; // Al no coincidir con ninguna opción válida, activará tu método Default()
+                }
                 switch (Opcion)
                 {
                     case 1:
@@ -165,7 +176,8 @@ namespace system_books
                             Console.WriteLine("4. Actualizar libro");
                             Console.WriteLine("5. Eliminar libro");
                             Console.Write("Selecciona una opción: ");
-                            Opcion = Convert.ToInt32(Console.ReadLine());
+                            Opcion = LeerOpcion();
+
                             switch (Opcion)
                             {
                                 case 0:
@@ -184,7 +196,11 @@ namespace system_books
                                         Console.WriteLine("3. Listar disponibles");
                                         Console.WriteLine("4. Listar prestados");
                                         Console.Write("Selecciona una opción: ");
-                                        Opcion = Convert.ToInt32(Console.ReadLine());
+                                        Opcion = LeerOpcion();
+
+                                        LeerOpcion();
+
+
                                         switch (Opcion)
                                         {
                                             case 1:
@@ -218,7 +234,8 @@ namespace system_books
                                         Console.WriteLine("3. Editar Autor");
                                         Console.WriteLine("4. Editar Año / Categoria");
                                         Console.Write("Selecciona una opción: ");
-                                        Opcion = Convert.ToInt32(Console.ReadLine());
+                                        Opcion = LeerOpcion();
+
                                         switch (Opcion)
                                         {
                                             case 1:
@@ -277,7 +294,8 @@ namespace system_books
                             Console.WriteLine("4. Actualizar usuario");
                             Console.WriteLine("5. Eliminar usuario");
                             Console.Write("Selecciona una opción: ");
-                            Opcion = Convert.ToInt32(Console.ReadLine());
+                            Opcion = LeerOpcion();
+
                             switch (Opcion)
                             {
                                 case 0:
@@ -302,7 +320,8 @@ namespace system_books
                                         Console.WriteLine("3. Editar Contacto");
                                         Console.WriteLine("4. Activar / Desactivar ");
                                         Console.Write("Selecciona una opción: ");
-                                        Opcion = Convert.ToInt32(Console.ReadLine());
+                                        Opcion = LeerOpcion();
+
                                         switch (Opcion)
                                         {
                                             case 1:
@@ -361,7 +380,8 @@ namespace system_books
                             Console.WriteLine("4. Registrar Devolución");
                             Console.WriteLine("5. Eliminar Préstamo");
                             Console.Write("Selecciona una opción: ");
-                            Opcion = Convert.ToInt32(Console.ReadLine());
+                            Opcion = LeerOpcion();
+
                             switch (Opcion)
                             {
                                 case 0:
@@ -371,7 +391,9 @@ namespace system_books
                                     CrearPrestamo();
                                     break;
                                 case 2:
+
                                     Console.WriteLine("Has seleccionado: Listar Préstamo");
+
                                     do
                                     {
                                         Console.WriteLine("\n--- LISTAR PRESTAMO ---");
@@ -380,7 +402,8 @@ namespace system_books
                                         Console.WriteLine("3. Listar Activos");
                                         Console.WriteLine("4. Listar Cerrados (devueltos) ");
                                         Console.Write("Selecciona una opción: ");
-                                        Opcion = Convert.ToInt32(Console.ReadLine());
+                                        Opcion = LeerOpcion();
+
                                         switch (Opcion)
                                         {
                                             case 1:
@@ -412,6 +435,7 @@ namespace system_books
                                     string ConfirmacionEliminacionPrestamo = Console.ReadLine();
                                     if (ConfirmacionEliminacionPrestamo.Trim().ToLower() == "s")
                                     {
+                                        ElliminarPrestamo();
                                         Console.WriteLine("EL prestamo se elimino con exito...");
                                         break;
                                     }
@@ -426,8 +450,7 @@ namespace system_books
                                         Opcion = 1;
                                         break;
                                     }
-                                    ElliminarPrestamo();
-                                    break;
+
                                 default:
                                     Default();
                                     break;
@@ -444,7 +467,8 @@ namespace system_books
                             Console.WriteLine("2. Buscar usuario");
                             Console.WriteLine("3. Reportes");
                             Console.Write("Selecciona una opción: ");
-                            Opcion = Convert.ToInt32(Console.ReadLine());
+                            Opcion = LeerOpcion();
+
                             switch (Opcion)
                             {
                                 case 0:
@@ -475,7 +499,8 @@ namespace system_books
                             Console.WriteLine("2. Cargar Datos");
                             Console.WriteLine("3. Reiniciar datos");
                             Console.Write("Selecciona una opción: ");
-                            Opcion = Convert.ToInt32(Console.ReadLine());
+                            Opcion = LeerOpcion();
+
                             switch (Opcion)
                             {
                                 case 0:
@@ -492,6 +517,7 @@ namespace system_books
                                     string ConfirmacionVaciar = Console.ReadLine();
                                     if (ConfirmacionVaciar.Trim().ToLower() == "s")
                                     {
+                                        ReiniciarDatos();
                                         Console.WriteLine("Vaciado Exitoso...");
                                         break;
                                     }
@@ -506,8 +532,7 @@ namespace system_books
                                         Opcion = 1;
                                         break;
                                     }
-                                    ReiniciarDatos();
-                                    break;
+
                                 default:
                                     Default();
                                     break;
@@ -591,9 +616,9 @@ namespace system_books
         static void EjecutarPruebasEV08()
         {
             Console.Clear();
-            Console.WriteLine("==================================================");
+            Console.WriteLine("============================================================");
             Console.WriteLine(" PRUEBAS DE SERVICIOS, LIST<T>, KPIs Y ARRAY VS LIST (EV08) ");
-            Console.WriteLine("==================================================\n");
+            Console.WriteLine("============================================================\n");
 
             // 7. Comparación Array vs List
             // Array: tamaño fijo al declararse; no permite agregar/quitar elementos dinámicamente.
@@ -637,6 +662,14 @@ namespace system_books
 
             prestamoService.AgregarPrestamo(prestamo1);
             prestamoService.AgregarPrestamo(prestamo2);
+            Prestamo prestamo3 = new Prestamo(3, libro3, usuario1);
+            prestamo3.FechaPrestamo = DateTime.Now.AddDays(-5);
+            prestamo3.FechaDevolucion = DateTime.Now;
+            prestamo3.Estado = EstadoPrestamo.Devuelto;
+            libro3.Disponible = true;
+
+            prestamoService.AgregarPrestamo(prestamo3);
+
 
             // Búsquedas
             Console.WriteLine("\n--- 2. BÚSQUEDAS ---");

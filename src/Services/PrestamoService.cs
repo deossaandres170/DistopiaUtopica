@@ -57,7 +57,10 @@ namespace DistopiaUtopica.Services
         // 5. Ordenación (por fecha límite)
         public List<Prestamo> OrdenarPorFechaLimite()
         {
-            return prestamos.OrderBy(p => p.FechaDevolucion).ToList(); // Ajusta al nombre de tu propiedad de fecha límite
+            return prestamos
+                .OrderBy(p => p.FechaPrestamo.AddDays(7))
+                .ToList();
         }
+
     }
 }
